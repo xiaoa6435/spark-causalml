@@ -11,10 +11,7 @@ project(
     'buildtype=debugoptimized',
     'b_ndebug=if-release',
     'c_std=c99',
-    'cpp_std=c++14',
-    'fortran_std=legacy',
-    'blas=openblas',
-    'lapack=openblas'
+    'cpp_std=c++14'
   ],
 )
 
@@ -128,17 +125,3 @@ version_link_args = ['-Wl,--version-script=' + _linker_script]
 if not cc.links('', name: '-Wl,--version-script', args: ['-shared', version_link_args])
   version_link_args = []
 endif
-
-generate_f2pymod = files('tools/generate_f2pymod.py')
-tempita = files('scipy/_build_utils/tempita.py')
-
-use_pythran = get_option('use-pythran')
-if use_pythran
-  pythran = find_program('pythran', native: true)
-  # xsimd is unvendored from pythran by conda-forge, and due to a compiler
-  # activation bug the default <prefix>/include/ may not be visible (see
-  # gh-15698). Hence look for xsimd explicitly.
-  xsimd_dep = dependency('xsimd', required: false)
-endif
-
-subdir('scipy')

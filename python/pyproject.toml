@@ -32,10 +32,10 @@ requires = [
 
 [project]
 name = "knn_match"
-version = "1.12.0.dev0"
+version = "0.0.1"
 # TODO: add `license-files` once PEP 639 is accepted (see meson-python#88)
 #       at that point, no longer include them in `py3.install_sources()`
-license = {file = "LICENSE.txt"}
+# license = {file = "LICENSE.txt"}
 description = "Fundamental algorithms for scientific computing in Python"
 maintainers = [
     {name = "SciPy Developers", email = "scipy-dev@python.org"},
@@ -49,7 +49,7 @@ dependencies = [
     # https://github.com/mesonbuild/meson-python/issues/29
     "numpy>=1.22.4",
 ]
-readme = "README.rst"
+# readme = "README.rst"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Science/Research",
